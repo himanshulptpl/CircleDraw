@@ -11,10 +11,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
-/**
- * Based on :
- * http://go-lambda.blogspot.fr/2012/02/rotary-knob-widget-on-android.html
- */
 public class RotaryKnobView extends ImageView {
 
 	private float angle = 0f;
@@ -42,7 +38,6 @@ public class RotaryKnobView extends ImageView {
 
 	public RotaryKnobView(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 	}
 
 	public RotaryKnobView(Context context, AttributeSet attrs) {
@@ -72,13 +67,6 @@ public class RotaryKnobView extends ImageView {
 		float nx = sx / length;
 		float ny = sy / length;
 		float theta = (float) Math.atan2(ny, nx);
-
-		/*
-		 * int centerXOfImageOnScreen = getLeft() + (int)(width / 2.0f); int
-		 * centerYOfImageOnScreen = getTop() +(int) (height / 2.0f); double
-		 * dy=(y-centerYOfImageOnScreen); double dx=(x-centerXOfImageOnScreen);
-		 * float theta =(float)Math.toDegrees(Math.atan(dy/dx));
-		 */
 		final float rad2deg = (float) (180.0 / Math.PI);
 		float theta2 = theta * rad2deg;
 		return (theta2 < 0) ? theta2 + 360.0f : theta2;
@@ -127,11 +115,6 @@ public class RotaryKnobView extends ImageView {
 	}
 
 	protected void onDraw(Canvas c) {
-		/*
-		 * if(angle>=360){ angle=360; }
-		 * 
-		 * if(angle<0){ angle=0; }
-		 */
 		if (angle < 260) {
 			angle = 260;
 		}
